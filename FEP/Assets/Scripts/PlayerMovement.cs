@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Shoot.performed += _ => Shoot();
 
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
 	private void Update()
@@ -47,14 +48,18 @@ public class PlayerMovement : MonoBehaviour
     private void Shoot()
     {
         Vector2 MousePos = Mouse.current.position.ReadValue();
-        Ray direction = Camera.main.ScreenPointToRay(new Vector3(MousePos.x, MousePos.y, 0));
+        Ray direction = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        
+
+        Debug.Log("Fired");
+
         if(Physics.Raycast(direction, out hit))
         {
+            Debug.Log("And hit");
             Zombie hitZombie = hit.collider.gameObject.GetComponent<Zombie>();
             if (hitZombie != null)
             {
+                Debug.Log("A Zombie");
                 hitZombie.Health--;
 			}
 		}

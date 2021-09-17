@@ -8,30 +8,37 @@ public class Zombie : MonoBehaviour
     [SerializeField] private NavMeshAgent pathFinding;
     [SerializeField] GameObject player;
 
-    [SerializeField] int health;
+    [SerializeField] float health;
     [SerializeField] int maxHealth;
     [SerializeField] float startingSpeed;
     public int Health
     {
         get
         {
-            return health;
+            return (int)health;
 		}
         set
         {
-            int change = health - value;
-            float percentBone = (float)health / maxHealth;
+            float change = health - value;
+            float percentHealth = (float)health / maxHealth;
 
+            pathFinding.speed = startingSpeed * percentHealth;
+            health -= change * percentHealth;
 
-
-            pathFinding.speed = startingSpeed * percentBone;
+            if(health < .5f)
+            {
+                Destroy(this);
+			}
 		}
 	}
 
 	private void Start()
 	{
+        System.Random rand = new System.Random();
         health = maxHealth;
         pathFinding.speed = startingSpeed;
+
+        transform.position = new Vector3(rand.Next(-50, 50), 0, rand.Next(-50, 50));
 	}
 
 	void Update()
