@@ -27,6 +27,7 @@ public class Zombie : MonoBehaviour
 
             if(health < .5f)
             {
+                Destroy(pathFinding);
                 Destroy(this);
 			}
 		}

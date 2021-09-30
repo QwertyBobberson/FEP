@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
         input.Player.Rotate.performed += rotation => Rotate(rotation);
         input.Player.Shoot.performed += _ => Shoot();
+        input.Player.Interact.performed += _ => Interact();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
@@ -33,7 +34,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = new Vector3(input.Player.Move.ReadValue<Vector2>().x, 0, input.Player.Move.ReadValue<Vector2>().y);
         speed = Vector3.Lerp(speed, move * maxMoveSpeed, Time.deltaTime * acceleration);
         transform.Translate(speed * Time.deltaTime, Space.Self);
-	}
+    }
+
+    private void Interact()
+    {
+        
+    }
 
     private void Rotate(InputAction.CallbackContext rotation)
     {
@@ -51,15 +57,11 @@ public class PlayerMovement : MonoBehaviour
         Ray direction = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        Debug.Log("Fired");
-
         if(Physics.Raycast(direction, out hit))
         {
-            Debug.Log("And hit");
             Zombie hitZombie = hit.collider.gameObject.GetComponent<Zombie>();
             if (hitZombie != null)
             {
-                Debug.Log("A Zombie");
                 hitZombie.Health--;
 			}
 		}
