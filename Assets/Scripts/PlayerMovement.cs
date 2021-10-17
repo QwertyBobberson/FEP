@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Rotate.performed += rotation => Rotate(rotation);
         input.Player.Shoot.performed += _ => Shoot();
         input.Player.Interact.performed += _ => Interact();
-        input.Player.Inventory.performed += _ => Inventory();
+        input.Player.Inventory.performed += _ => OpenInventory();
 
         //Lock the cursor to the center of the screen and make it invisible
         Cursor.lockState = CursorLockMode.Locked;
@@ -56,9 +56,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Inventory()
+    public void OpenInventory()
     {
-
+        for(int i = 0; i < Inventory.inventory.InventorySlots.Length; i++)
+        {
+            if(Inventory.inventory.InventorySlots[i].Amount != 0)
+            {
+                Debug.Log($"{Inventory.inventory.InventorySlots[i].Item.name}: x{Inventory.inventory.InventorySlots[i].Amount}");
+            }
+        }
     }
 
     //Calculate the player's rotation, clamp the vertical rotation, and then apply it

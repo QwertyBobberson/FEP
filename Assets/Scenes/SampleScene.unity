@@ -408,12 +408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d293f74c59b5e8acb3abf5658d51237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRotation: 0
   rotationSpeed: {x: 1, y: 1}
   maxRotation: 85
   maxMoveSpeed: 5
   acceleration: 10
-  speed: {x: 0, y: 0, z: 0}
 --- !u!1 &1072659003
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,8 +424,8 @@ GameObject:
   - component: {fileID: 1072659009}
   - component: {fileID: 1072659008}
   - component: {fileID: 1072659007}
-  - component: {fileID: 1072659006}
   - component: {fileID: 1072659005}
+  - component: {fileID: 1072659006}
   m_Layer: 0
   m_Name: Zombie (19)
   m_TagString: Untagged
@@ -480,9 +478,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1072659003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b676b238fd04842bc7a4b1b48dc397, type: 3}
+  m_Script: {fileID: 11500000, guid: e0c0f98a81f653d218bcf659c916bdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathFinding: {fileID: 1072659005}
+  player: {fileID: 908046532}
+  health: 0
+  maxHealth: 15
+  startingSpeed: 3.5
 --- !u!65 &1072659007
 BoxCollider:
   m_ObjectHideFlags: 0

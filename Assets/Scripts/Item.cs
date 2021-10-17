@@ -20,6 +20,8 @@ public class Item : Interactable
     public override void Interact()
     {
         Inventory.inventory.AddToInventory(this);
+        transform.parent = Inventory.inventory.gameObject.transform;
+        gameObject.SetActive(false);
     }
 
     /// <summary>

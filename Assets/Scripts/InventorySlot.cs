@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class InventorySlot : MonoBehaviour
+public class InventorySlot
 {
     private Item item;
     private int amount;
@@ -19,13 +19,21 @@ public class InventorySlot : MonoBehaviour
     }
 
     /// <summary>
-    /// Amount of the item in the itemslot
+    /// /// Amount of the item in the itemslot
     /// </summary>
     /// <value>Negative values and 0 are overriden with 0</value>
     public int Amount 
     {
         get => amount; 
         set => amount = value > 0 ? value : 1;
+    }
+
+    /// <summary>
+    /// Default constructor, sets amount to 0
+    /// </summary>
+    public InventorySlot()
+    {
+        amount = 0;
     }
 
     /// <summary>

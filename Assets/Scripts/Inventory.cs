@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Inventory : MonoBehaviour
 {
+    [SerializeField]
     private int inventorySize;
-    private InventorySlot[] inventorySlots;
 
     /// <summary>
     /// Size of the player's inventory
@@ -43,6 +43,13 @@ public class Inventory : MonoBehaviour
         {
             throw new System.Exception("Multiple inventories in game");
 		}
+
+        InventorySlots = new InventorySlot[inventorySize];
+
+        for(int i = 0; i < inventorySize; i++)
+        {
+            InventorySlots[i] = new InventorySlot();
+        }
 	}
 
     /// <summary>
@@ -87,15 +94,8 @@ public class Inventory : MonoBehaviour
     /// <returns>True if the player has the item, false otherwise</returns>
     public bool PlayerHas(InventorySlot item)
     {
-        for(int i = 0; i < InventorySize; i++)
-        {
-            if(item.Item.name == InventorySlots[i].Item.name && item.Amount <= InventorySlots[i].Amount)
-            {
-                return true;
-			}
-		}
-
-        return false;
+        int _;
+        return PlayerHas(item, out _);
 	}
 
     /// <summary>
@@ -108,7 +108,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventorySize; i++)
         {
-            if (item.Item.name == InventorySlots[i].Item.name && item.Amount <= InventorySlots[i].Amount)
+            if (InventorySlots[i].Amount != 0 && InventorySlots[i].Item != null && item.Item.name == InventorySlots[i].Item.name && item.Amount <= InventorySlots[i].Amount)
             {
                 index = i;
                 return true;
