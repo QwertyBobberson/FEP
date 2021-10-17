@@ -8,7 +8,7 @@ using UnityEngine;
 public class Item : Interactable
 {
 
-    Texture2D icon;
+    public Texture2D icon;
     public InventorySlot[] salvageReward;
     public InventorySlot[] craftingRecipe;
 

@@ -58,13 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OpenInventory()
     {
-        for(int i = 0; i < Inventory.inventory.InventorySlots.Length; i++)
-        {
-            if(Inventory.inventory.InventorySlots[i].Amount != 0)
-            {
-                Debug.Log($"{Inventory.inventory.InventorySlots[i].Item.name}: x{Inventory.inventory.InventorySlots[i].Amount}");
-            }
-        }
+        Inventory.inventory.ToggleView();
     }
 
     //Calculate the player's rotation, clamp the vertical rotation, and then apply it

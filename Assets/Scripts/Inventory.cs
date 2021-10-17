@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the inventory of the player
@@ -9,6 +10,8 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField]
     private int inventorySize;
+
+    public RawImage[] inventorySlotsUI;
 
     /// <summary>
     /// Size of the player's inventory
@@ -108,7 +111,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventorySize; i++)
         {
-            if (InventorySlots[i].Amount != 0 && InventorySlots[i].Item != null && item.Item.name == InventorySlots[i].Item.name && item.Amount <= InventorySlots[i].Amount)
+            if (InventorySlots[i].Item != null && item.Item.name == InventorySlots[i].Item.name && item.Amount <= InventorySlots[i].Amount)
             {
                 index = i;
                 return true;
@@ -141,21 +144,26 @@ public class Inventory : MonoBehaviour
     /// <param name="items">Item to remove from the player's inventory</param>
     public void Remove(InventorySlot items)
     {
-        for(int i = 0; i < InventorySize; i++)
+        int index;
+        if(PlayerHas(items, out index))
         {
-            if(items.Item.name == InventorySlots[i].Item.name && items.Amount <= InventorySlots[i].Amount)
-            {
-                InventorySlots[i].Amount -= items.Amount;
-
-                if(InventorySlots[i].Amount == 0)
-                {
-                    InventorySlots[i] = null;
-				}
-
-                return;
-			}
-		}
+            InventorySlots[index].Item.gameObject.transform.SetParent(null);
+            InventorySlots[index].Item.gameObject.SetActive(true);
+            InventorySlots[index].Item = null;
+        }
 	}
+
+    /// <summary>
+    /// Swap two inventory slots
+    /// </summary>
+    /// <param name="slotOne">The index of the first slot to swap</param>
+    /// <param name="slotTwo">The index of the second slot to swap</param>
+    public void SwapSpots(int slotOne, int slotTwo)
+    {
+        InventorySlot temp = InventorySlots[slotOne];
+        InventorySlots[slotOne] = InventorySlots[slotTwo];
+        InventorySlots[slotTwo] = temp;
+    }
 
     /// <summary>
     /// Remove a list of items from the player's inventory
@@ -168,4 +176,29 @@ public class Inventory : MonoBehaviour
             Remove(items[i]);
 		}
 	}
+
+    /// <summary>
+    /// Make the inventory visible or invisible to the player
+    /// </summary>
+    public void ToggleView()
+    {
+        for(int i = 0; i < inventorySize; i++)
+        {
+            inventorySlotsUI[i].enabled = !inventorySlotsUI[i].enabled;
+            if(InventorySlots[i].Item != null)
+            {
+                inventorySlotsUI[i].texture = InventorySlots[i].Item.icon;
+                inventorySlotsUI[i].name = InventorySlots[i].Item.name;
+            }
+            else
+            {
+                inventorySlotsUI[i].texture = null;
+                inventorySlotsUI[i].name = "";
+            }
+
+        }
+
+        Cursor.visible = inventorySlotsUI[0].enabled;
+        Cursor.lockState = inventorySlotsUI[0].enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
+    }
 }
