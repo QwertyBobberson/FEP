@@ -40,3 +40,7 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+
+UserSettings/
+Logs/
+.vscode/
