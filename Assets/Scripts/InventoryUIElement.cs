@@ -24,9 +24,6 @@ public class InventoryUIElement : MonoBehaviour
                 item = Inventory.inventory.InventorySlots[i].Item;
             }
         }
-
-        Debug.Log(item.name);
-        Debug.Log(Inventory.inventory.PlayerHas(item));
         Inventory.inventory.Remove(item);
     }
 }
