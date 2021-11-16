@@ -25,7 +25,7 @@ public class InventorySlot
     public int Amount 
     {
         get => amount; 
-        set => amount = value > 0 ? value : 1;
+        set => amount = value > 0 ? value : 0;
     }
 
     /// <summary>

@@ -16,12 +16,12 @@ public class @InputManager : IInputActionCollection, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""1d9ae78b-64df-4cba-8cad-85118a20919a"",
+            ""id"": ""0557dcf3-a1d4-497c-929a-78cebb8ebad1"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""ef5ade05-dcbf-4661-8aac-9689d11b9112"",
+                    ""id"": ""441b29b9-65b1-4ed6-91cd-6d1120c7e750"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -29,7 +29,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Rotate"",
                     ""type"": ""Value"",
-                    ""id"": ""ffdc02cd-724e-4a83-a963-7386eb358b7f"",
+                    ""id"": ""af99fd93-989d-45fa-b792-d9f0df46640a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -37,15 +37,15 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
-                    ""id"": ""af79468f-7d86-46f1-a390-58ab6e135d78"",
+                    ""id"": ""939e783d-8e06-4873-a6b3-81be08fc3b2d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 },
                 {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""7392c24f-c71f-4644-9def-13065b06cb4f"",
+                    ""id"": ""ab111eda-be94-43c0-a7ec-4f9b5401e615"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -53,7 +53,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Aim"",
                     ""type"": ""Button"",
-                    ""id"": ""3aa1cc55-ac31-475d-bc90-ad600911e626"",
+                    ""id"": ""e2ffe174-e019-4fa7-9339-5d2cf40f620c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -61,15 +61,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
-                    ""id"": ""bd44f722-779e-47a3-b65b-02c48a8e0926"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Hotbar"",
-                    ""type"": ""Button"",
-                    ""id"": ""14b37d80-e0bd-489b-a2f3-ffabb5b76aeb"",
+                    ""id"": ""4dcc9007-d59c-44ef-8004-a50d1a742ea2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -78,7 +70,7 @@ public class @InputManager : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""f19457f7-0d57-4e99-8080-edb47470c0e7"",
+                    ""id"": ""bca0aa43-5d4c-4125-ac21-0cf99ae3b866"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -89,7 +81,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""e44642df-5cd5-4449-ab29-b4b02a63ecc1"",
+                    ""id"": ""f1c7418d-182d-4cbb-994c-ae88dac01e30"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -100,7 +92,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""abd21b37-6348-4d2d-866c-fef9c0cff735"",
+                    ""id"": ""91cb4595-0799-47cd-a542-115567cf64b9"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -111,7 +103,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""809b1228-904f-44b0-b4b6-4219a5902075"",
+                    ""id"": ""1c28bff0-0d98-43d8-b510-ab7ab4422eb5"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -122,7 +114,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""4f188c27-a243-48de-b866-f64cd2df04de"",
+                    ""id"": ""02377c70-0edd-443f-b87b-d451d1482317"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -133,7 +125,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cd013264-4774-4c61-8d7d-387d3cd05259"",
+                    ""id"": ""2ed75af7-2f18-4071-b9ad-530488810329"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -144,7 +136,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""40c2c179-8c3f-4d39-8369-b7cfa7d7340e"",
+                    ""id"": ""48cab222-4bf7-4e6d-b5ac-e6fe9f4ada78"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -155,7 +147,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9af92a34-309f-40b4-9a76-163dab77016d"",
+                    ""id"": ""f7b17020-2037-4d1a-b071-714b1f5c4236"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -166,7 +158,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dbfc8525-9b44-4f0b-96e2-36b08a1ad65f"",
+                    ""id"": ""5f45360e-788b-4e1d-a236-8f150e1e6c97"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -177,23 +169,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4fd0717e-3bfe-4eba-aa32-fb2232b187f2"",
+                    ""id"": ""8eeb581d-4e8b-4fb7-b2f2-803602cf44de"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7214badf-cc06-48eb-aebf-b8ebc199282f"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Hotbar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -210,7 +191,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
-        m_Player_Hotbar = m_Player.FindAction("Hotbar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,7 +246,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Inventory;
-    private readonly InputAction m_Player_Hotbar;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -277,7 +256,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
-        public InputAction @Hotbar => m_Wrapper.m_Player_Hotbar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,9 +283,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
-                @Hotbar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHotbar;
-                @Hotbar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHotbar;
-                @Hotbar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHotbar;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,9 +305,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
-                @Hotbar.started += instance.OnHotbar;
-                @Hotbar.performed += instance.OnHotbar;
-                @Hotbar.canceled += instance.OnHotbar;
             }
         }
     }
@@ -345,6 +317,5 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
-        void OnHotbar(InputAction.CallbackContext context);
     }
 }

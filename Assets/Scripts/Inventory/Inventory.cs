@@ -62,15 +62,13 @@ public class Inventory : MonoBehaviour
     /// <returns>True if the item was successfully added, false otherwise</returns>
 	public bool AddToInventory(InventorySlot items)
     {
-        //Keep track of weather or not the item was successfully added
-        bool added = false;
-
         //If the player already has the item in their inventory, then increase the Amount
         int index;
         if (PlayerHas(items, out index))
         {
             InventorySlots[index].Amount += items.Amount;
-            added = true;
+            UpdateInventory();
+            return true;
         }
         //Otherwise, search for an empty slot and add the items there 
         else
@@ -81,13 +79,15 @@ public class Inventory : MonoBehaviour
                 {
                     InventorySlots[i].Item = items.Item;
                     InventorySlots[i].Amount = items.Amount;
-                    added = true;
-                    break;
+                    UpdateInventory();
+                    return true;
 				}
 			}
 		}
 
-        return added;
+        UpdateInventory();
+
+        return false;
     }
 
     /// <summary>
@@ -147,10 +147,24 @@ public class Inventory : MonoBehaviour
         int index;
         if(PlayerHas(items, out index))
         {
-            InventorySlots[index].Item.gameObject.transform.SetParent(null);
-            InventorySlots[index].Item.gameObject.SetActive(true);
-            InventorySlots[index].Item = null;
+            GameObject item = GameObject.Instantiate(items.Item.gameObject, items.Item.gameObject.transform);
+            item.transform.parent = null;
+            item.SetActive(true);
+
+            InventorySlots[index].Amount -= 1;
+
+            Debug.Log(InventorySlots[index].Amount);
+
+            if(InventorySlots[index].Amount <= 0)
+            {
+                GameObject toDelete = InventorySlots[index].Item.gameObject;
+                InventorySlots[index].Item = null;
+                InventorySlots[index].Amount = 0;
+                Destroy(toDelete);
+            }
         }
+
+        UpdateInventory();
 	}
 
     /// <summary>
@@ -163,6 +177,8 @@ public class Inventory : MonoBehaviour
         InventorySlot temp = InventorySlots[slotOne];
         InventorySlots[slotOne] = InventorySlots[slotTwo];
         InventorySlots[slotTwo] = temp;
+
+        UpdateInventory();
     }
 
     /// <summary>
@@ -185,6 +201,32 @@ public class Inventory : MonoBehaviour
         for(int i = 0; i < inventorySize; i++)
         {
             inventorySlotsUI[i].enabled = !inventorySlotsUI[i].enabled;
+        }
+
+        Cursor.visible = inventorySlotsUI[0].enabled;
+        Cursor.lockState = inventorySlotsUI[0].enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
+    }
+
+    /// <summary>
+    /// Update the inventoryUIElements with the right elements and move objects over to fill empty spots
+    /// </summary>
+    public void UpdateInventory()
+    {
+        bool sorted = true;
+        do
+        {
+            for(int i = 1; i < inventorySize; i++)
+            {
+                if(InventorySlots[i - 1].Item == null && InventorySlots[i].Item != null)
+                {
+                    SwapSpots(i, i - 1);
+                    sorted = false;
+                }
+            }
+        } while(!sorted);
+
+        for(int i = 0; i < inventorySize; i++)
+        {
             if(InventorySlots[i].Item != null)
             {
                 inventorySlotsUI[i].texture = InventorySlots[i].Item.icon;
@@ -195,10 +237,6 @@ public class Inventory : MonoBehaviour
                 inventorySlotsUI[i].texture = null;
                 inventorySlotsUI[i].name = "";
             }
-
         }
-
-        Cursor.visible = inventorySlotsUI[0].enabled;
-        Cursor.lockState = inventorySlotsUI[0].enabled ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
 }

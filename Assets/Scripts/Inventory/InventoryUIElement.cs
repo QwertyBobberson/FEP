@@ -8,7 +8,7 @@ public class InventoryUIElement : MonoBehaviour
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("this");
+        Remove();
     }
 
     public void Remove()

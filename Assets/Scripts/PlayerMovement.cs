@@ -6,11 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private InputManager input;
-
     private float currentRotation;
     public Vector2 rotationSpeed;
     public float maxRotation;
-
     public float maxMoveSpeed;
     public float acceleration;
     private Vector3 speed;
@@ -86,6 +84,5 @@ public class PlayerMovement : MonoBehaviour
                 hitZombie.Health--;
 			}
 		}
-
 	}
 }
